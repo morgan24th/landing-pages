@@ -1,5 +1,5 @@
 ## Greeting.
-Hello fellow developers, I'm Prince Morgan a fulstack developer.
+Hello fellow developers, I'm Prince Morgan a fullstack developer.
 I created these landing pages to help boost your productivity.
 
 ## Instructions
