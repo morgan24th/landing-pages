@@ -7,11 +7,22 @@ const ServerPage = () => {
         "use server"
         try {
           const file = formData.get("image") as File;
+          
+          if(file.type !== "image/jpeg"){
+            alert("Invalid file type. Only JPEG is supported.");
+            return
+          }
+
+          if(file.size > 1 * 1024 * 1024){
+            alert("File size is too large. Maximum allowed size is 1MB.");
+            return
+          }
+
           const arrayBuffer = await file.arrayBuffer();
           const buffer = new Uint8Array(arrayBuffer);
       
           // Specify the base directory for uploads
-          const uploadDir = join(process.cwd(), 'public', 'images', 'tmp');
+          const uploadDir = join('public', 'images', 'tmp');
           const filePath = join(uploadDir, file.name);
       
           // Ensure the directory exists
@@ -20,11 +31,9 @@ const ServerPage = () => {
           // Write the file
           await writeFile(filePath, buffer);
       
-          console.log(`File uploaded successfully to ${filePath}`);
-          return { success: `File uploaded successfully to ${filePath}` };
+          alert(`File uploaded successfully to`);
         } catch (error) {
-          console.error('Error uploading file:', error);
-          return { error: 'Failed to upload file' };
+          alert('Error uploading file:');
         }
     }
 
