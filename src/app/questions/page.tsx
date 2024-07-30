@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-export default function page() {
+export default function QuestionsPage() {
   const [randomQuestions, setRandomQuestions] = useState<quiz_questions[]>([]);
   // types
   interface quiz_questions {
