@@ -9,12 +9,12 @@ const ServerPage = () => {
           const file = formData.get("image") as File;
           
           if(file.type !== "image/jpeg"){
-            alert("Invalid file type. Only JPEG is supported.");
+            console.log("Invalid file type. Only JPEG is supported.");
             return
           }
 
           if(file.size > 1 * 1024 * 1024){
-            alert("File size is too large. Maximum allowed size is 1MB.");
+            console.log("File size is too large. Maximum allowed size is 1MB.");
             return
           }
 
@@ -31,9 +31,9 @@ const ServerPage = () => {
           // Write the file
           await writeFile(filePath, buffer);
       
-          alert(`File uploaded successfully to`);
+          console.log(`File uploaded successfully to`);
         } catch (error) {
-          alert('Error uploading file:');
+          console.log('Error uploading file:');
         }
     }
 
