@@ -1,13 +1,14 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+
+// types
+interface quiz_questions {
+  question: string;
+  options: string[];
+}
 
 export default function QuestionsPage() {
   const [randomQuestions, setRandomQuestions] = useState<quiz_questions[]>([]);
-  // types
-  interface quiz_questions {
-    question: string;
-    options: string[];
-  }
 
   // questions
   const questions: quiz_questions[] = [
